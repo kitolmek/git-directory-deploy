@@ -7,8 +7,8 @@ For an example of use, see [X1011/verge-mobile-bingo](https://github.com/X1011/v
 ## configuration
 Download the script (`wget https://github.com/X1011/git-directory-deploy/raw/master/deploy.sh && chmod +x deploy.sh`) and edit these variables within it as needed to fit your project:
 
-- **deploy_directory**: root of the tree of files to deploy
-- **deploy_branch**: branch to commit files to and push to origin
+- **deploy_directory**: root of the tree of files to deploy.
+- **deploy_branch**: branch to commit files to and push to origin.
 - **default_username**, **default_email**: identity to use for git commits if none is set already. Useful for CI servers.
 - **repo**: repository to deploy to. Must be readable and writable. The default of "origin" will not work on Travis CI, since it uses the read-only git protocol. In that case, it is recommended to store a [GitHub token](https://help.github.com/articles/creating-an-access-token-for-command-line-use) in a [secure environment variable](http://docs.travis-ci.com/user/environment-variables/#Secure-Variables) and use it in an HTTPS URL like this: <code>repo=https://$GITHUB_TOKEN@github\.com/<i>user</i>/<i>repo</i>.git</code> **Warning: there is currently [an issue](https://github.com/X1011/git-directory-deploy/issues/7) where the repo URL may be output if an operation fails.**
 
@@ -31,10 +31,10 @@ Whatever values set later in this list will override those set earlier.
 Do this every time you want to deploy, or have your CI server do it.
 
 1. check out the branch or commit of the source you want to use. The script will use this commit to generate a message when it makes its own commit on the deploy branch.
-2. generate the files in `deploy_directory`
-3. make sure you have no uncommitted changes in git's index. The script will abort if you do. (It's ok to have uncommitted files in the work tree; the script does not touch the work tree.)
-4. if `deploy_directory` is a relative path (the default is), make sure you are in the directory you want to resolve against. (For the default, this means you should be in the project's root.)
-5. run `./deploy.sh`
+2. generate the files in `deploy_directory`.
+3. make sure you have no uncommitted changes in git's index. The script will abort if you do. (It's ok to have uncommitted files in the work tree; the script does not touch the work tree)
+4. if `deploy_directory` is a relative path (the default is), make sure you are in the directory you want to resolve against. (For the default, this means you should be in the project's root)
+5. run `./deploy.sh`.
 
 ### options
 `-h`, `--help`: show the program's help info.
